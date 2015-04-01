@@ -4,36 +4,70 @@ $('.beerClick').click(function(){
   addBeer();
 });
 
-$('.buttonStart').click(function(){
-  startGame();
+// $('.buttonDrunk').click(function(){
+//   startGame();
+//   console.log("Button is working");
+// });
+
+$("button").click(function(){
 });
 
+var feeling;
+
+$('.buttonDrunk').click(function(){
+  startGame();
+  console.log("Buttondrunk is working");
+  // whichDrink(); 
+  // $(".dlist").append("Added a"+"[drink]");
+});
+
+$('.buttonDrunk')[1].onclick
+
+$('.buttonDrunk').attr('data-harry') // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
+
+
+// $('.buttonContainer').click(function(){
+//   containerTemp();
+//   console.log("Button is working");
+// });
+
 var secondsLeft = 10;
-
-function addBeer() {
-   console.log("Beer added!");
-    return addBeer; // REMEMBER TO USE RETURN!
-  };
-
-// var addBeer = function logBeer() {
-//    console.log("Beer added!");
-//     return addBeer; // REMEMBER TO USE RETURN!
-//   };
-
-
+  var unitDrinks=0;
 
 function startGame(){
-  $('.drunky >p').text(ranNum()+" + "+ranNum2()); //NOTE: if you dont use "return" previously, ranNum is not stored.
-  //console.log(ranNum);
-  $('.answer').focus();
-  var timer = setInterval(functionEverySecond, 5000); // <---- this is right
+  var a=howDrunk;
+  var b=unitDrinks;
+  $('.status').text(a);  
+  console.log("function startGame ran");
+  $('.counterbanner').text("Drink count: "+b);  
 }
 
+// function whichDrink() {
+//   if ($('.buttonDrunk')[1].click()) {
+//     console.log("Button 1 was clicked");
+//   }
+// } 
 
-
-
-
-
+var howDrunk =function fhowdrunk(){
+  unitDrinks=unitDrinks+1;
+  if (unitDrinks < 2) {
+feeling = "Congrats on your first drink!";
+} else if (unitDrinks >= 13) {
+    feeling = "XxX";
+  } else if (unitDrinks <4) {
+    feeling = "Still quite sober; drink more and faster";
+  } else if (unitDrinks >=4 && unitDrinks < 6) {
+    feeling = "Getting there"
+  } else if (unitDrinks >=6 && unitDrinks <8) {
+    feeling = "Approaching drunk"
+  } else if (unitDrinks >=8 && unitDrinks <10) {
+    feeling = "Should not be able to read this"
+  } else if (unitDrinks >=10 && unitDrinks <12) {
+    feeling = "This is messed up"
+  };
+  return feeling;   
+   //return unitDrinks;
+}
 
 var ranNum = function generateRanNum() {
     ranNum = Math.ceil(Math.random()*100);
@@ -47,12 +81,12 @@ var ranNum2= function generateRanNum2() {
     return ranNum2;
   };
 
-function startGame(){
-  $('.foo >p').text(ranNum()+" + "+ranNum2()); //NOTE: if you dont use "return" previously, ranNum is not stored.
-  //console.log(ranNum);
-  $('.answer').focus();
-  var timer = setInterval(functionEverySecond, 5000); // <---- this is right
-}
+// function startGame(){
+//   $('.foo >p').text(ranNum()+" + "+ranNum2()); //NOTE: if you dont use "return" previously, ranNum is not stored.
+//   //console.log(ranNum);
+//   $('.answer').focus();
+//   var timer = setInterval(functionEverySecond, 5000); // <---- this is right
+// }
 
 var points=0;
 
@@ -88,21 +122,6 @@ function raveWDI() {
   crazy = setInterval(crazyBackground, 200);
 };
 
-var pointText = function Wala() {
-  if (points==1) {
-    pointText="point!"
-  } else {
-    pointText="points";
-  }
-};
-
-// var pointText = function getPoints() {
-//   if (points==1) {
-//     points="point!"
-//   } else {
-//     points="points";
-//   }
-// }
 
 function newCal(){
   ranNum = Math.ceil(Math.random()*100);
