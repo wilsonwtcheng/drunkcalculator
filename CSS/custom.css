@@ -1,0 +1,66 @@
+/*.jumbotron {
+	border-style: 10px solid red;
+}*/
+/*body {background: lightgrey;}
+*/
+.pink {background-color: pink;
+	}
+.blue {background-color: blue;
+	}
+.grey {background-color: #F8F8F8 ;
+	}
+.white {background-color: white;
+              border: 1px solid lightgrey;
+          }
+.green {background-color: green;
+	}
+.purple {background-color: purple;
+	}
+.yellow {background-color: yellow;
+	}
+.red {background-color: red;
+	color: red;
+	}
+.orange {background-color: orange;
+	}
+.brown {background-color: brown;
+	}	
+.byben1 {font-style: italic; 
+	}
+.support {
+	margin: 15px auto;
+}
+.centerImg {
+	text-align: center;
+}
+
+.logoMaxW {
+/*	margin: 0px auto;
+	display: block;*/
+/*	max-width:600px;
+*/	max-width: 100%;
+ /*   height: auto;
+    width: auto;*/
+/*    margin:0px auto;
+    display:block;*/
+}
+
+.vert-offset{
+    margin-top: 1em;
+}
+
+''
+/* You can include your custom styling here */
+
+<!-- Box test codes start -->
+<div class="row"> 
+    <div class="col-sm-6 col-md-6 col-lg-6 yellow"> WHAT</div> <!-- this sets the stage for the left hand side column -->
+       <div class="col-sm-6 col-md-6 green col-lg-6 purple"> <!-- this sets the stage for the right hand side column -->
+          <div class="col-sm-12 col-md-12 col-lg-12 red">Red</div> <!-- the top box within the right hand side column will take the full width of the RHS column - span 12 -->
+          <div class="col-sm-12 col-md-12 col-lg-12 green">Green</div> <!-- the bottom box within the right hand side column will ALSO take the full width of the RHS column - span 12 -->
+    </div>
+</div>
+</div>
+
+
+<!-- box test codes end -->
