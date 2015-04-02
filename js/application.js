@@ -65,7 +65,7 @@ var points=0;
 
 $(document).on('keyup', '.answer', function() {
    var answer = ranNum+ranNum2;
-   if ( $('.answer').val() == answer ) {
+   if ( $('.answer').val() === answer ) {
       var clear = $(".answer");
       clear[0].value="";
       points = points +1;
@@ -73,9 +73,9 @@ $(document).on('keyup', '.answer', function() {
     if (points > 9) {
       playAudio();
       if (points >19) {
-        alert("Congratulations! But there is no such things as Ultimate Satisfaction.")
+        alert("Congratulations! But there is no such things as Ultimate Satisfaction.");
       }
-  raveWDI()};
+  raveWDI()}
      secondsLeft += 1;
      newCal();
    }
