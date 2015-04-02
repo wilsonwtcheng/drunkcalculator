@@ -39,27 +39,27 @@ var drinksHistory = {
   },
   button2: {
     count: 0, 
-    text: "Bottle of beer"
+    text: "Pint of beer"
   },
   button3: {
     count: 0, 
-    text: "Bottle of beer" 
+    text: "Shot of spirit" 
   },
   button4: {
     count: 0,
-     text: "Bottle of beer" 
+     text: "Glass of red" 
    },
   button5: {
     count: 0, 
-    text: "Bottle of beer" 
+    text: "Glass of white" 
   },
   button6: {
     count: 0, 
-    text: "Bottle of beer" 
+    text: "Glass of champagne" 
   },
   button7: {
     count: 0, 
-    text: "Bottle of beer" 
+    text: "Glass of cocktail" 
   },
   // button8: {count: 0, text: "Bottle of beer" },
   // button9: {count: 0, text: "Bottle of beer" },
@@ -75,69 +75,89 @@ function printDrinks(){
 }
 
 $('.button1').click(function(){ 
-        drinksHistory["b1"]["count"] += 1;
+        drinksHistory["button1"]["count"] += 1;
         $(".rightDrinkLog").text("");
+        $(".leftDrinkLog").append("<li>Bottle of beer</li>");
+        // $(".leftDrinkLog").text(drinksHistory["button1"].text);
         printDrinks();
-        botBeeBreak();
+        // botBeeBreak();
     });
 $('.button2').click(function(){ 
-        drinksHistory["b2"]["count"] += 1;
+        drinksHistory["button2"]["count"] += 1;
         $(".rightDrinkLog").text("");
         printDrinks();
-        pinBeeBreak();
+        // pinBeeBreak();
     });
-$('.button3').click(function(){ 
-        $(".leftDrinkLog").append("<li>Shot of spirit</li>");
-        shospi=shospi+1;
-    });
-$('.button4').click(function(){ 
-        $(".leftDrinkLog").append("<li>Glass of red</li>");
-        glared=glared+1;
-    });
-$('.button5').click(function(){ 
-        $(".leftDrinkLog").append("<li>Glass of white</li>");
-        glawhi=glawhi+1;
-    });
-$('.button6').click(function(){ 
-        $(".leftDrinkLog").append("<li>Glass of champagne</li>");
-        glacha=glacha+1;
-    });
-$('.button7').click(function(){ 
-        $(".leftDrinkLog").append("<li>Glass of cocktail</li>");
-        glacoc=glacoc+1;
-    });
+
+//"<li>Pint of beer x 2</li>"
+
+
+// functions that worked and getting retired **start*
+
+// function botBeeBreak() {
+//   if (botbee === 1){
+//         $(".rightDrinkLog").append("<li>Bottle of beer x 1</li>");
+//         } else if (botbee === 2) {
+//         $(".rightDrinkLog").text("");          
+//         $(".rightDrinkLog").append("<li>Bottle of beer x 2</li>");
+//         } else if (botbee === 3) {
+//         $(".rightDrinkLog").text("");    
+//         $(".rightDrinkLog").append("<li>Bottle of beer x 3</li>");
+//         } return;
+// }
+
+// function pinBeeBreak() {
+//   // var latestEle;
+//     // var oneXBeer = $("<li>Pint of beer x 1</li>");
+//   if (pinbee === 1){
+//         $(".rightDrinkLog").append("<li>Pint of beer x 1</li>");
+//         // latestEle = $(".rightDrinkLog li");
+//         } else if (pinbee === 2) {
+//         $(".rightDrinkLog").text("");          
+//         // $(".rightDrinkLog").text("");  
+//        // oneXBeer.remove();
+//         $(".rightDrinkLog").append("<li>Pint of beer x 2</li>");
+//         } else if (pinbee === 3) {
+//         // $(".rightDrinkLog").text("");    
+//         $(".rightDrinkLog").append("<li>Pint of beer x 3</li>");
+//         } return;
+// }
+// functions that worked and getting retired **end*
+
+//old buttons that worked but replaced **Start
+
+// $('.button1').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Bottle of beer</li>");
+//         botbee=botbee+1;
+//     });
+// $('.button2').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Pint of beer</li>");
+//         pinbee=pinbee+1;
+//     });
+// $('.button3').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Shot of spirit</li>");
+//         shospi=shospi+1;
+//     });
+// $('.button4').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Glass of red</li>");
+//         glared=glared+1;
+//     });
+// $('.button5').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Glass of white</li>");
+//         glawhi=glawhi+1;
+//     });
+// $('.button6').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Glass of champagne</li>");
+//         glacha=glacha+1;
+//     });
+// $('.button7').click(function(){ 
+//         $(".leftDrinkLog").append("<li>Glass of cocktail</li>");
+//         glacoc=glacoc+1;
+//     });
 // $('.b8').click(function(){ 
 //         $("ol").append("<li>Bottle of beer</li>");
 //     });
-
-function botBeeBreak() {
-  if (botbee === 1){
-        $(".rightDrinkLog").append("<li>Bottle of beer x 1</li>");
-        } else if (botbee === 2) {
-        $(".rightDrinkLog").text("");          
-        $(".rightDrinkLog").append("<li>Bottle of beer x 2</li>");
-        } else if (botbee === 3) {
-        $(".rightDrinkLog").text("");    
-        $(".rightDrinkLog").append("<li>Bottle of beer x 3</li>");
-        } return;
-}
-
-function pinBeeBreak() {
-  // var latestEle;
-    // var oneXBeer = $("<li>Pint of beer x 1</li>");
-  if (pinbee === 1){
-        $(".rightDrinkLog").append("<li>Pint of beer x 1</li>");
-        // latestEle = $(".rightDrinkLog li");
-        } else if (pinbee === 2) {
-        $(".rightDrinkLog").text("");          
-        // $(".rightDrinkLog").text("");  
-       // oneXBeer.remove();
-        $(".rightDrinkLog").append("<li>Pint of beer x 2</li>");
-        } else if (pinbee === 3) {
-        // $(".rightDrinkLog").text("");    
-        $(".rightDrinkLog").append("<li>Pint of beer x 3</li>");
-        } return;
-}
+//old buttons that worked but replaced **End
 
 function resetLog() {
         $(".leftDrinkLog").remove();
