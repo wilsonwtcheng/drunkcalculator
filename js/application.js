@@ -16,7 +16,7 @@ $('.buttonDrunk').click(function(){
 
 $('.buttonDrunk')[1].onclick
 
-$('.buttonDrunk').attr('data-harry') // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
+$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
 
 var secondsLeft = 10;
   var unitDrinks=0;
@@ -38,16 +38,16 @@ feeling = "Congrats on your first drink!";
   } else if (unitDrinks <4) {
     feeling = "Still quite sober; drink more and faster";
   } else if (unitDrinks >=4 && unitDrinks < 6) {
-    feeling = "Getting there"
+    feeling = "Getting there";
   } else if (unitDrinks >=6 && unitDrinks <8) {
-    feeling = "Approaching drunk"
+    feeling = "Approaching drunk";
   } else if (unitDrinks >=8 && unitDrinks <10) {
-    feeling = "Should not be able to read this"
+    feeling = "Should not be able to read this";
   } else if (unitDrinks >=10 && unitDrinks <12) {
-    feeling = "This is messed up"
-  };
+    feeling = "This is messed up";
+  }
   return feeling;   
-}
+};
 
 var ranNum = function generateRanNum() {
     ranNum = Math.ceil(Math.random()*100);
@@ -75,7 +75,7 @@ $(document).on('keyup', '.answer', function() {
       if (points >19) {
         alert("Congratulations! But there is no such things as Ultimate Satisfaction.");
       }
-  raveWDI()}
+  raveWDI();}
      secondsLeft += 1;
      newCal();
    }
@@ -86,12 +86,12 @@ function crazyBackground() {
     , "white" , "yellow", "gold", "orchid", "lightcyan"];
     var randomNumber = Math.floor(Math.random() * colors.length);
   document.bgColor = colors[randomNumber];
-};
+}
 
 var crazy;
 function raveWDI() {
   crazy = setInterval(crazyBackground, 200);
-};
+}
 
 
 function newCal(){
@@ -99,30 +99,30 @@ function newCal(){
   ranNum2 = Math.ceil(Math.random()*100); 
   $('.foo >p').text(ranNum+" + "+ranNum2); 
   return(ranNum);
-};
+}
 
 function addOneSecond() {
   secondsLeft++;
-};
+}
 
 function functionEverySecond() {
   if (secondsLeft < 0) {
     // Stop the timer
     console.log("Game Over!");
-    alert("Game Over!")
+    alert("Game Over!");
     clearInterval(timer);
   } else {
     console.log(secondsLeft);
     $('.scounter >p').text("Seconds Left: "+secondsLeft); 
     secondsLeft = secondsLeft - 1;
   }
-};
+}
 
 var audio = new Audio("http://freedownloads.last.fm/download/578751073/The%2BPinkie%2BPie%2BStyle.mp3");
 
 function playAudio() {
   audio.play();
-};
+}
 
 });
 
