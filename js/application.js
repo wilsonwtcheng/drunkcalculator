@@ -18,13 +18,13 @@ $('.resetLogBut').click(function(){
 // var drinks = ['Bottle of beer', 'Pint of beer', 'Shot of spirit', 'Glass of Red', 'Glass of white','Glass of champagne', 'Glass of cocktail'];
 //$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
 
-var botbee=0;
-var pinbee=0;
-var shospi=0;
-var glared=0;
-var glawhi=0;
-var glacha=0;
-var glacoc=0;
+// var botbee=0;
+// var pinbee=0;
+// var shospi=0;
+// var glared=0;
+// var glawhi=0;
+// var glacha=0;
+// var glacoc=0;
 
 // var drinks = [[d1],[d2],[d3],[d4]]
 // var d1={ botbee1 : 1 };
@@ -39,7 +39,7 @@ var drinksHistory = {
   },
   button2: {
     count: 0, 
-    text: "Pint of beer"
+    text: "Spirit + Mixer"
   },
   button3: {
     count: 0, 
@@ -61,14 +61,13 @@ var drinksHistory = {
     count: 0, 
     text: "Glass of cocktail" 
   },
-  // button8: {count: 0, text: "Bottle of beer" },
-  // button9: {count: 0, text: "Bottle of beer" },
-  // button10: {count: 0, text: "Bottle of beer" },
+  // note: more buttons/drinks can go here, if any
 };
 
 function printDrinks(){
   for (var drinks in drinksHistory){
-    if(drinksHistory[drinks].count !== 0){
+//    if(drinksHistory[drinks].count !== 0){ // both this syntax and below syntax works.
+    if(drinksHistory[drinks]["count"] !== 0){
       $(".rightDrinkLog").append("<li>" + drinksHistory[drinks].text + " x " + drinksHistory[drinks].count + "</li>");
     }
   }
@@ -76,22 +75,89 @@ function printDrinks(){
 
 $('.button1').click(function(){ 
         drinksHistory["button1"]["count"] += 1;
-        $(".rightDrinkLog").text("");
         $(".leftDrinkLog").append("<li>Bottle of beer</li>");
         // $(".leftDrinkLog").text(drinksHistory["button1"].text);
+        $(".rightDrinkLog").text("");
         printDrinks();
-        // botBeeBreak();
     });
 $('.button2').click(function(){ 
         drinksHistory["button2"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Spirit + mixer</li>");
         $(".rightDrinkLog").text("");
-        $(".leftDrinkLog").append("<li>Pint of beer</li>");
         printDrinks();
-        // pinBeeBreak();
+    });
+$('.button3').click(function(){ 
+        drinksHistory["button3"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Shot of spirit</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
+$('.button4').click(function(){ 
+        drinksHistory["button4"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Glass of red</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
+$('.button5').click(function(){ 
+        drinksHistory["button5"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Glass of white</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
+$('.button6').click(function(){ 
+        drinksHistory["button6"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Glass of champagne</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
+$('.button7').click(function(){ 
+        drinksHistory["button7"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Glass of coctail</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
     });
 
-//"<li>Pint of beer x 2</li>"
+function resetLog() {
+  for (var drinks in drinksHistory){
+    (drinksHistory[drinks]["count"] = 0)
+  };
+        $(".leftDrinkLog").remove();
+        $(".rightDrinkLog").remove();
+        $(".status").text("- -");
+        $(".counterbanner").text("Drink count: 0");
+}
 
+var feeling;
+var unitDrinks=0;
+
+function startGame(){
+  var a=howDrunk;
+  var b=unitDrinks;
+  $('.status').text(a);  
+  console.log("function startGame ran");
+  $('.counterbanner').text("Drink count: "+(b+1));  
+}
+
+var howDrunk =function fhowdrunk(){
+  unitDrinks=unitDrinks+1;
+  //console.log(unitDrinks);
+  if (unitDrinks < 2) {
+feeling = "...Congrats on your first drink!";
+} else if (unitDrinks >= 13) {
+    feeling = "XxX";
+  } else if (unitDrinks <4) {
+    feeling = "...Still quite sober; drink more and faster!";
+  } else if (unitDrinks >=4 && unitDrinks < 6) {
+    feeling = "...Getting there!";
+  } else if (unitDrinks >=6 && unitDrinks <8) {
+    feeling = "...Approaching drunk!";
+  } else if (unitDrinks >=8 && unitDrinks <10) {
+    feeling = "...Should not be able to read this!";
+  } else if (unitDrinks >=10 && unitDrinks <12) {
+    feeling = "...This is messed up";
+  }
+  return feeling;   
+};
 
 // functions that worked and getting retired **start*
 
@@ -160,46 +226,10 @@ $('.button2').click(function(){
 //     });
 //old buttons that worked but replaced **End
 
-function resetLog() {
-        $(".leftDrinkLog").remove();
-        $(".rightDrinkLog").remove();
-        $(".status").text("- -");
-        $(".counterbanner").text("Drink count: 0");
-}
 
-var feeling;
 
-var secondsLeft = 10;
-  var unitDrinks=0;
+// var secondsLeft = 10;
 
-function startGame(){
-  var a=howDrunk;
-  var b=unitDrinks;
-  $('.status').text(a);  
-  console.log("function startGame ran");
-  $('.counterbanner').text("Drink count: "+(b+1));  
-}
-
-var howDrunk =function fhowdrunk(){
-  unitDrinks=unitDrinks+1;
-  //console.log(unitDrinks);
-  if (unitDrinks < 2) {
-feeling = "...Congrats on your first drink!";
-} else if (unitDrinks >= 13) {
-    feeling = "XxX";
-  } else if (unitDrinks <4) {
-    feeling = "...Still quite sober; drink more and faster!";
-  } else if (unitDrinks >=4 && unitDrinks < 6) {
-    feeling = "...Getting there!";
-  } else if (unitDrinks >=6 && unitDrinks <8) {
-    feeling = "...Approaching drunk!";
-  } else if (unitDrinks >=8 && unitDrinks <10) {
-    feeling = "...Should not be able to read this!";
-  } else if (unitDrinks >=10 && unitDrinks <12) {
-    feeling = "...This is messed up";
-  }
-  return feeling;   
-};
 
 var ranNum = function generateRanNum() {
     ranNum = Math.ceil(Math.random()*100);
