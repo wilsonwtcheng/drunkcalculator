@@ -1,36 +1,15 @@
 $(document).ready(function() { 
 
-// $('.beerClick').click(function(){
-//   addBeer();
-// });
-
 $('.buttonDrunk').click(function(){
   startGame();
-  console.log("Buttondrunk is working");
+  // console.log("Buttondrunk is working");
 });
 
 $('.resetLogBut').click(function(){
   resetLog();
 });
 
-// $('.buttonDrunk')[1].onclick
-
-// var drinks = ['Bottle of beer', 'Pint of beer', 'Shot of spirit', 'Glass of Red', 'Glass of white','Glass of champagne', 'Glass of cocktail'];
 //$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
-
-// var botbee=0;
-// var pinbee=0;
-// var shospi=0;
-// var glared=0;
-// var glawhi=0;
-// var glacha=0;
-// var glacoc=0;
-
-// var drinks = [[d1],[d2],[d3],[d4]]
-// var d1={ botbee1 : 1 };
-// var d2={ pinbee1 : 2 };
-// var d3={ shospi1 : 3 };
-// var d4={ glared1 : 4 };
 
 var drinksHistory = {
   button1: {
@@ -121,6 +100,8 @@ function resetLog() {
   for (var drinks in drinksHistory){
     (drinksHistory[drinks]["count"] = 0)
   };
+  $('.counterbanner').text("Drink count: 0");
+  unitDrinks=0;  
         $(".leftDrinkLog").remove();
         $(".rightDrinkLog").remove();
         $(".status").text("- -");
@@ -134,7 +115,6 @@ function startGame(){
   var a=howDrunk;
   var b=unitDrinks;
   $('.status').text(a);  
-  console.log("function startGame ran");
   $('.counterbanner').text("Drink count: "+(b+1));  
 }
 
@@ -143,8 +123,8 @@ var howDrunk =function fhowdrunk(){
   //console.log(unitDrinks);
   if (unitDrinks < 2) {
 feeling = "...Congrats on your first drink!";
-} else if (unitDrinks >= 13) {
-    feeling = "XxX";
+} else if (unitDrinks >= 15) {
+    feeling = "RIP";
   } else if (unitDrinks <4) {
     feeling = "...Still quite sober; drink more and faster!";
   } else if (unitDrinks >=4 && unitDrinks < 6) {
@@ -152,9 +132,11 @@ feeling = "...Congrats on your first drink!";
   } else if (unitDrinks >=6 && unitDrinks <8) {
     feeling = "...Approaching drunk!";
   } else if (unitDrinks >=8 && unitDrinks <10) {
-    feeling = "...Should not be able to read this!";
+    feeling = "...You might want to sit down!";
   } else if (unitDrinks >=10 && unitDrinks <12) {
-    feeling = "...This is messed up";
+    feeling = "...This is a bit messed up";
+  } else if (unitDrinks >=12 && unitDrinks <14) {
+    feeling = "...You should not be able to read this!";
   }
   return feeling;   
 };
