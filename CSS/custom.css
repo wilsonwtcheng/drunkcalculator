@@ -30,7 +30,12 @@
 .support {
 	margin: 15px auto;
 }
+
 .centerImg {
+	text-align: center;
+}
+
+.centerText {
 	text-align: center;
 }
 
