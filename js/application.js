@@ -85,6 +85,7 @@ $('.button1').click(function(){
 $('.button2').click(function(){ 
         drinksHistory["button2"]["count"] += 1;
         $(".rightDrinkLog").text("");
+        $(".leftDrinkLog").append("<li>Pint of beer</li>");
         printDrinks();
         // pinBeeBreak();
     });
