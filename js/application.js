@@ -1,22 +1,152 @@
 $(document).ready(function() { 
 
-$('.beerClick').click(function(){
-  addBeer();
-});
-
-$("button").click(function(){
-});
-
-var feeling;
+// $('.beerClick').click(function(){
+//   addBeer();
+// });
 
 $('.buttonDrunk').click(function(){
   startGame();
   console.log("Buttondrunk is working");
 });
 
-$('.buttonDrunk')[1].onclick
+$('.resetLogBut').click(function(){
+  resetLog();
+});
 
-$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
+// $('.buttonDrunk')[1].onclick
+
+// var drinks = ['Bottle of beer', 'Pint of beer', 'Shot of spirit', 'Glass of Red', 'Glass of white','Glass of champagne', 'Glass of cocktail'];
+//$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
+
+var botbee=0;
+var pinbee=0;
+var shospi=0;
+var glared=0;
+var glawhi=0;
+var glacha=0;
+var glacoc=0;
+
+// var drinks = [[d1],[d2],[d3],[d4]]
+// var d1={ botbee1 : 1 };
+// var d2={ pinbee1 : 2 };
+// var d3={ shospi1 : 3 };
+// var d4={ glared1 : 4 };
+
+var drinksHistory = {
+  button1: {
+    count: 0, 
+    text: "Bottle of beer"
+  },
+  button2: {
+    count: 0, 
+    text: "Bottle of beer"
+  },
+  button3: {
+    count: 0, 
+    text: "Bottle of beer" 
+  },
+  button4: {
+    count: 0,
+     text: "Bottle of beer" 
+   },
+  button5: {
+    count: 0, 
+    text: "Bottle of beer" 
+  },
+  button6: {
+    count: 0, 
+    text: "Bottle of beer" 
+  },
+  button7: {
+    count: 0, 
+    text: "Bottle of beer" 
+  },
+  // button8: {count: 0, text: "Bottle of beer" },
+  // button9: {count: 0, text: "Bottle of beer" },
+  // button10: {count: 0, text: "Bottle of beer" },
+};
+
+function printDrinks(){
+  for (var drinks in drinksHistory){
+    if(drinksHistory[drinks].count !== 0){
+      $(".rightDrinkLog").append("<li>" + drinksHistory[drinks].text + " x " + drinksHistory[drinks].count + "</li>");
+    }
+  }
+}
+
+$('.button1').click(function(){ 
+        drinksHistory["b1"]["count"] += 1;
+        $(".rightDrinkLog").text("");
+        printDrinks();
+        botBeeBreak();
+    });
+$('.button2').click(function(){ 
+        drinksHistory["b2"]["count"] += 1;
+        $(".rightDrinkLog").text("");
+        printDrinks();
+        pinBeeBreak();
+    });
+$('.button3').click(function(){ 
+        $(".leftDrinkLog").append("<li>Shot of spirit</li>");
+        shospi=shospi+1;
+    });
+$('.button4').click(function(){ 
+        $(".leftDrinkLog").append("<li>Glass of red</li>");
+        glared=glared+1;
+    });
+$('.button5').click(function(){ 
+        $(".leftDrinkLog").append("<li>Glass of white</li>");
+        glawhi=glawhi+1;
+    });
+$('.button6').click(function(){ 
+        $(".leftDrinkLog").append("<li>Glass of champagne</li>");
+        glacha=glacha+1;
+    });
+$('.button7').click(function(){ 
+        $(".leftDrinkLog").append("<li>Glass of cocktail</li>");
+        glacoc=glacoc+1;
+    });
+// $('.b8').click(function(){ 
+//         $("ol").append("<li>Bottle of beer</li>");
+//     });
+
+function botBeeBreak() {
+  if (botbee === 1){
+        $(".rightDrinkLog").append("<li>Bottle of beer x 1</li>");
+        } else if (botbee === 2) {
+        $(".rightDrinkLog").text("");          
+        $(".rightDrinkLog").append("<li>Bottle of beer x 2</li>");
+        } else if (botbee === 3) {
+        $(".rightDrinkLog").text("");    
+        $(".rightDrinkLog").append("<li>Bottle of beer x 3</li>");
+        } return;
+}
+
+function pinBeeBreak() {
+  // var latestEle;
+    // var oneXBeer = $("<li>Pint of beer x 1</li>");
+  if (pinbee === 1){
+        $(".rightDrinkLog").append("<li>Pint of beer x 1</li>");
+        // latestEle = $(".rightDrinkLog li");
+        } else if (pinbee === 2) {
+        $(".rightDrinkLog").text("");          
+        // $(".rightDrinkLog").text("");  
+       // oneXBeer.remove();
+        $(".rightDrinkLog").append("<li>Pint of beer x 2</li>");
+        } else if (pinbee === 3) {
+        // $(".rightDrinkLog").text("");    
+        $(".rightDrinkLog").append("<li>Pint of beer x 3</li>");
+        } return;
+}
+
+function resetLog() {
+        $(".leftDrinkLog").remove();
+        $(".rightDrinkLog").remove();
+        $(".status").text("- -");
+        $(".counterbanner").text("Drink count: 0");
+}
+
+var feeling;
 
 var secondsLeft = 10;
   var unitDrinks=0;
@@ -26,25 +156,26 @@ function startGame(){
   var b=unitDrinks;
   $('.status').text(a);  
   console.log("function startGame ran");
-  $('.counterbanner').text("Drink count: "+b);  
+  $('.counterbanner').text("Drink count: "+(b+1));  
 }
 
 var howDrunk =function fhowdrunk(){
   unitDrinks=unitDrinks+1;
+  //console.log(unitDrinks);
   if (unitDrinks < 2) {
-feeling = "Congrats on your first drink!";
+feeling = "...Congrats on your first drink!";
 } else if (unitDrinks >= 13) {
     feeling = "XxX";
   } else if (unitDrinks <4) {
-    feeling = "Still quite sober; drink more and faster";
+    feeling = "...Still quite sober; drink more and faster!";
   } else if (unitDrinks >=4 && unitDrinks < 6) {
-    feeling = "Getting there";
+    feeling = "...Getting there!";
   } else if (unitDrinks >=6 && unitDrinks <8) {
-    feeling = "Approaching drunk";
+    feeling = "...Approaching drunk!";
   } else if (unitDrinks >=8 && unitDrinks <10) {
-    feeling = "Should not be able to read this";
+    feeling = "...Should not be able to read this!";
   } else if (unitDrinks >=10 && unitDrinks <12) {
-    feeling = "This is messed up";
+    feeling = "...This is messed up";
   }
   return feeling;   
 };
