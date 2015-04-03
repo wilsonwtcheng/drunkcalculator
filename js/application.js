@@ -1,12 +1,23 @@
 $(document).ready(function() { 
 
 $('.buttonDrunk').click(function(){
-  startGame();
+  // bannerStatus();
+  blinkTransition();
+
   // console.log("Buttondrunk is working");
+
+});
+
+$('.dummyBut').click(function(){
+  blinkTransition();
 });
 
 $('.resetLogBut').click(function(){
   resetLog();
+});
+
+$('.reloadBut').click(function(){
+  reloadPage();
 });
 
 //$('.buttonDrunk').attr('data-harry'); // THIS IS SELECTING ELEMENT USING CLASS! CAN USE THIS FOR LOGGING BUTTON ACTION?
@@ -18,7 +29,7 @@ var drinksHistory = {
   },
   button2: {
     count: 0, 
-    text: "Spirit + Mixer"
+    text: "Spirit + mixer"
   },
   button3: {
     count: 0, 
@@ -40,7 +51,14 @@ var drinksHistory = {
     count: 0, 
     text: "Glass of cocktail" 
   },
-  // note: more buttons/drinks can go here, if any
+    button8: {
+    count: 0, 
+    text: "Other alcohol" 
+  },
+    button9: {
+    count: 0, 
+    text: "Glass of water" 
+  }, // note: more buttons/drinks can go here, if any
 };
 
 function printDrinks(){
@@ -95,23 +113,23 @@ $('.button7').click(function(){
         $(".rightDrinkLog").text("");
         printDrinks();
     });
-
-function resetLog() {
-  for (var drinks in drinksHistory){
-    (drinksHistory[drinks]["count"] = 0)
-  };
-  $('.counterbanner').text("Drink count: 0");
-  unitDrinks=0;  
-        $(".leftDrinkLog").remove();
-        $(".rightDrinkLog").remove();
-        $(".status").text("- -");
-        $(".counterbanner").text("Drink count: 0");
-}
+$('.button8').click(function(){ 
+        drinksHistory["button8"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Other alcohol</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
+$('.button9').click(function(){ 
+        drinksHistory["button9"]["count"] += 1;
+        $(".leftDrinkLog").append("<li>Glass of water</li>");
+        $(".rightDrinkLog").text("");
+        printDrinks();
+    });
 
 var feeling;
 var unitDrinks=0;
 
-function startGame(){
+function bannerStatus(){
   var a=howDrunk;
   var b=unitDrinks;
   $('.status').text(a);  
@@ -140,6 +158,48 @@ feeling = "...Congrats on your first drink!";
   }
   return feeling;   
 };
+
+var blinkSecondsLeft = 2;
+var blinkSpeed =800;
+
+function blinkTransition() {
+  // var t = setInterval (blinkFunction() , blinkSpeed);
+  var timer = setInterval(
+  function() {
+    $('.status').text("- - calculating - -");  
+    var ele = document.getElementById("blinkingBox");
+    ele.style.visibility = (ele.style.visibility == "hidden" ? "" : "hidden");
+    if (blinkSecondsLeft < 0) {
+      clearInterval(timer);
+      bannerStatus();
+      blinkSecondsLeft = 2;
+    } else {
+      console.log(blinkSecondsLeft);
+      blinkSecondsLeft = blinkSecondsLeft - 1;
+    }
+  }
+  , blinkSpeed); // perform blinkTransition, every 0.5 seconds
+  }
+
+function reloadPage() {
+  window.location.reload();
+  }
+
+
+// note: below WIP resetLog. Doesn't actually reset the variables yet start****
+// function resetLog() {
+//   for (var drinks in drinksHistory){
+//     (drinksHistory[drinks]["count"] = 0)
+//   };
+//   $('.counterbanner').text("Drink count: 0");
+//   unitDrinks=0;  
+//         $(".leftDrinkLog").remove();
+//         $(".rightDrinkLog").remove();
+//         $(".status").text("- -");
+//         $(".counterbanner").text("Drink count: 0");
+// }
+// end of resetLog***
+
 
 // functions that worked and getting retired **start*
 
@@ -209,9 +269,7 @@ feeling = "...Congrats on your first drink!";
 //old buttons that worked but replaced **End
 
 
-
-// var secondsLeft = 10;
-
+//below may be used if math game is incorporated:
 
 var ranNum = function generateRanNum() {
     ranNum = Math.ceil(Math.random()*100);
@@ -226,6 +284,7 @@ var ranNum2= function generateRanNum2() {
   };
 
 var points=0;
+
 
 $(document).on('keyup', '.answer', function() {
    var answer = ranNum+ranNum2;
@@ -268,6 +327,7 @@ function newCal(){
 function addOneSecond() {
   secondsLeft++;
 }
+
 
 function functionEverySecond() {
   if (secondsLeft < 0) {

@@ -12,7 +12,11 @@
 .topJumboColour {background-color: #C9DFC9 ;
 	}
 .white {background-color: white;
-              border: 1px solid lightgrey;
+         border: 1px solid lightgrey;
+    }
+.white2 {background-color: white;
+	margin-top: 100px;
+              /*border: 1px solid lightgrey;*/
     }
 .green {background-color: green;
 	}
@@ -27,6 +31,7 @@
 	}
 .brown {background-color: brown;
 	}	
+
 .byben1 {font-style: italic; 
 	}
 
@@ -37,6 +42,30 @@
 .centerText {
 	text-align: center;
 }
+
+.jumboStyle {
+	padding-top: 0px; 
+	padding-bottom: 0px;
+	margin-bottom: 20px;
+}
+
+.jumboStyle2 {
+	padding-top: 0px; 
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.btn-circle {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 24px;
+  line-height: 1.42;
+  border-radius: 180px;
+  border-color: lightgray;
+}
+
 
 .logoMaxW {
 /*	margin: 0px auto;
@@ -52,7 +81,6 @@
 .vert-offset{
     margin-top: 1em;
 }
-
 ''
 /* You can include your custom styling here */
 
